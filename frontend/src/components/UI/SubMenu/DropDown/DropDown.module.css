@@ -1,0 +1,32 @@
+.dropDown{
+    width: 300px;
+    left: -50%;
+    top: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    position: absolute;
+    background-color: #fff;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px); /* Bắt đầu từ trên cao hơn một chút */
+    transition: all 0.4s ease; /* Thời gian cuốn: 0.4 giây */
+}
+
+.show{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Trượt lên vị trí chuẩn */
+}
+
+.listItem{
+    display: flex;
+    flex-wrap: wrap; 
+    list-style: none;
+}
+
+.item{
+    padding: 4px;
+    border: 1px solid #ccc;
+    margin: 4px;
+}

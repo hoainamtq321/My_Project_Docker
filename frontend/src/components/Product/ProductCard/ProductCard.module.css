@@ -1,0 +1,28 @@
+.productCard{
+    flex: 0 0 32%;
+    margin-right: 8px;
+    width: 100%;        /* Lấp đầy khung cha cấp cho */
+    height: 100%;       /* Lấp đầy chiều cao nếu cần */
+}
+
+.imageWrapper{
+
+}
+.avatar{
+    width: 100%;
+}
+.content{
+
+}
+.title a{
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.7);
+}
+.title a:hover{
+    color: rgba(0, 0, 0, 1);
+}
+.price{
+
+}

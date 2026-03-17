@@ -1,0 +1,33 @@
+.quantityItem{
+    width: 100px;
+    position: relative;
+}
+.quantityInput{
+    width: 100%;
+    text-align: center;
+    -moz-appearance: textfield;
+
+    padding: 4px 24px;
+    border: 1px solid #ccc; /* Viền mặc định */
+    border-radius: 4px;
+    outline: none; /* Bỏ đường viền mặc định của trình duyệt */
+    transition: border-color 0.3s ease; /* Hiệu ứng mượt */
+}
+
+.quantityInput:focus{
+    border-color: #555555; /* Đổi màu viền thành đen khi click (hoặc màu bạn thích) */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Thêm đổ bóng nhẹ cho sang */
+}
+.quantityBtn{
+    top: 3px;
+    border: 0;
+    position: absolute;
+    background-color: unset;
+    cursor: pointer;
+}
+.btnAdd{
+    right: 0;
+}
+.btnReduce{
+    left: 0;
+}

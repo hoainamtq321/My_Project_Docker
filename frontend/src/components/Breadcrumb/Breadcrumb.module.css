@@ -1,0 +1,14 @@
+.breadcrumb {
+    margin: 0;
+    padding: 12px 0;
+    padding-left: 30px;
+    border-top: 1px solid #EFEFF4;
+    border-bottom: 1px solid #EFEFF4;
+}
+
+.breadcrumb a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+    font-family: gmv_din_pro;
+}

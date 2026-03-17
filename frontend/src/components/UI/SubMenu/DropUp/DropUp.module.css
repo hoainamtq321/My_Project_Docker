@@ -1,0 +1,63 @@
+.dropUp{
+    width: 200px;
+    /* đặt ở giữa theo chiều ngang của phần tử cha */
+    left: 50%;
+    transform: translateX(-50%) translateY(200%); /* bắt đầu hơi dưới để có hiệu ứng trượt lên */
+
+    /* sử dụng bottom để hiển thị lên phía trên (drop‑up) thay vì top */
+    bottom: 12px;
+    top: auto;
+
+    padding: 8px;
+    border: 1px solid #ccc;
+    position: absolute;
+    background-color: #fff;
+    z-index: 9999; /* cao hơn breadcrumb */
+    visibility: hidden; /* ẩn mặc định */
+    opacity: 0; /* ẩn mặc định */
+    transition: all 0.4s ease;
+}
+
+.show{
+    opacity: 1;
+    visibility: visible;
+    z-index: 9999;
+    transform: translateX(-50%) translateY(120%); /* Trượt lên vị trí chuẩn */
+}
+
+.listItem{
+    list-style: none;
+    
+}
+
+.item{
+    padding: 8px;
+    position: relative;
+}
+
+.itemLink{
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.item:hover > .subList{
+    display: unset;
+}
+.subList{
+    display: none;
+    top: -9px;
+    right: -100%;
+    border: 1px solid;
+    width: 200px;
+    position: absolute;
+    background-color: #fff;
+    list-style: none;
+    padding: 8px;
+
+}
+
+.subItem{
+    padding: 8px;
+}
