@@ -8,6 +8,9 @@ const ProductCard = ({p,className})=>{
         <div  className={`mb-3 ${className || styles.productCard}`}>
             <div className={styles.imageWrapper}>
                 <img className={styles.avatar} src={product1} alt="" />
+                <div className={styles.overlay}>
+                    <Link className={styles.viewMoreBtn} to={`/product/${p.id}`}>Xem them</Link>
+                </div>
             </div>
             <div className={`p-3 text-center ${styles.content}`}>
                 <div className={styles.title}>

@@ -6,10 +6,51 @@
 }
 
 .imageWrapper{
-
+    position: relative;
+    overflow: hidden; /* CỰC KỲ QUAN TRỌNG: Để cắt bỏ phần overlay khi nó đang nằm ngoài */
 }
 .avatar{
+    display: block; /* Tránh khoảng trắng thừa dưới đáy ảnh */
     width: 100%;
+    height: auto;
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+
+    /* Hiệu ứng trượt */
+    /* Hiệu ứng trượt */
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-out;
+    pointer-events: none; /* Tránh việc overlay cản trở chuột khi chưa hover */
+}
+/* Khi di chuột vào wrapper, lớp overlay sẽ trượt về vị trí cũ */
+.imageWrapper:hover .overlay {
+    transform: translateX(0);
+    pointer-events: auto; /* Kích hoạt lại tương tác khi đã hiện ra */
+    color: #000;
+}
+
+.viewMoreBtn{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    padding: 4px 8px;
+    display: block;
+    width: 200px;
+    border: 1px solid #fff;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+}
+.viewMoreBtn:hover{
+    background-color: #fff;
+    color: #000;
 }
 .content{
 
