@@ -6,10 +6,19 @@ import { useEffect, useState, useRef } from 'react';
 const ProductSection = ()=>{
 
         const [products, setProducts] = useState([]);
+        const [isLoading, setIsLoading] = useState(true); // Khởi tạo là đang load
         const sliderRef = useRef(null);
 
         useEffect(()=>{
-            getProducts(1).then(res => setProducts(res.data.data));
+            getProducts(1).then(res => 
+                {
+                    setProducts(res.data.data);
+                    setIsLoading(false); // Có dữ liệu thì set false
+                })
+                    .catch(err => {
+                    console.error(err);
+                    setIsLoading(false); // Lỗi cũng set false để tránh treo skeleton
+                });
         },[]);
 
         
@@ -54,13 +63,25 @@ const ProductSection = ()=>{
 
             <div className={styles.productSlider} ref={sliderRef}>
                 <div className={styles.productList}>
-                    {products.map(p => (
-                        <ProductCard 
-                            key={p.id} 
-                            p={p} 
-                            className={styles.productItem} 
-                        />
-                    ))}
+                    {isLoading 
+                        ? // Nếu đang load, hiển thị 8 khung xương giả
+                          Array(8).fill(0).map((_, index) => (
+                              <ProductCard 
+                                  key={`skeleton-${index}`} 
+                                  isLoading={true} 
+                                  className={styles.productItem} 
+                              />
+                          ))
+                        : // Nếu đã có dữ liệu, hiển thị sản phẩm thật
+                          products.map(p => (
+                              <ProductCard 
+                                  key={p.id} 
+                                  p={p} 
+                                  isLoading={false}
+                                  className={styles.productItem} 
+                              />
+                          ))
+                    }
                 </div>
             </div>
         </div>
