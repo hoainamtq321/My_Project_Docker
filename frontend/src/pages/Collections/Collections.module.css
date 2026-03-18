@@ -1,0 +1,10 @@
+.collections{
+    padding-top: 48px;
+}
+.boxFirst{
+    width: 200px;
+}
+
+.boxFinal{
+    flex: 1 1 0;
+}

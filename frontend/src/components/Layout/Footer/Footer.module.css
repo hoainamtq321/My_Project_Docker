@@ -1,0 +1,36 @@
+.footer{
+    padding: 50px 0px;
+    color: white;
+    background-color: black;
+}
+
+.footer ul{
+    padding: 0;
+    margin: 0;
+}
+
+.items{
+    flex-wrap: wrap;
+    width: 100%;
+    list-style: none;
+}
+
+.item{
+    padding-left: 32px;
+    flex: 1 1 0;            /* GIÃN RA CHIẾM HẾT */
+    min-width: 180px;       /* KT nhỏ nhất */
+}
+
+.itemFirst{
+    min-width: 280px;
+}
+
+.itemMenu{
+    width: 100%;
+    list-style: none;
+}
+
+.frame{
+    margin-right: 8px;
+    margin-bottom: 8px;
+}

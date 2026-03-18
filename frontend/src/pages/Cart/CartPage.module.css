@@ -1,0 +1,59 @@
+.cart{
+    padding: 28px;
+}
+.cartHeader{
+
+}
+
+.cartBody{
+
+}
+
+.table{
+    width: 100%;
+    table-layout: fixed;   /* Ép các cột phải tuân thủ độ rộng được chia */
+    border-collapse: collapse; /* Để các đường viền không bị tách rời */
+}
+.table th,
+.table td{
+    width: 20%;
+    text-align: center;    /* Căn giữa nội dung */
+    vertical-align: middle;
+    padding: 28px;
+    overflow: hidden;      /* Tránh nội dung quá dài làm vỡ cột */
+    word-wrap: break-word; /* Tự xuống dòng nếu chữ quá dài */
+}
+
+.row{
+    border: 1px solid #ccc;
+    border-left: 0;
+    border-right: 0;
+}
+
+.colImage img {
+    max-width: 100%;       /* Ảnh không được to hơn ô chứa */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.colName{
+
+}
+
+.colPrice{
+
+}
+
+.colQty{
+
+}
+
+.colSubtotal{
+
+}
+
+
+.cartActions{
+
+}

@@ -1,0 +1,46 @@
+.sidebar{
+    margin-left: 20px;
+}
+.title{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.link{
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 8px;
+    transition: all 0.3s ease;
+}
+.listItem a{
+
+    align-items: center;
+    text-decoration: none;
+    color: #444;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent; /* Tạo vạch màu bên cạnh */
+}
+
+/* Trạng thái đang Active (đang ở trang đó) */
+.active {
+    border-left: 3px solid #000000 !important; /* Vạch xanh hiện lên */
+    font-weight: 600 !important;
+}
+
+.subList{
+    list-style: none;
+    padding-left: 15px; /* Thụt vào đầu dòng cho menu cấp 2 */
+}
+
+.subList .listItem a {
+    font-size: 0.9rem;
+    color: #666;
+}

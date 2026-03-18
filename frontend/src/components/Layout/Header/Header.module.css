@@ -1,0 +1,106 @@
+/*Begin CSS General*/
+
+/*End CSS General*/
+
+.header{
+    padding: 12px;
+    justify-content: space-between;
+    position: relative; /* create stacking context */
+    z-index: 10000;   /* sit above breadcrumb */
+}
+
+.headerBegin{
+    display: flex;
+    width: 200px;
+}
+.logo{
+    margin: auto;
+    display: inline-block;
+}
+.logoImg{
+    display: block;
+}
+
+/*Animation*/
+@keyframes revealFromLeft {
+  0% {
+    /* Cắt toàn bộ phần tử từ bên trái (ẩn hết) */
+    filter: blur(4px);
+    opacity: 0;
+  }
+  100% {
+    /* Mở rộng vùng hiển thị sang bên phải (hiện hết) */
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.revealText {
+  display: inline-block; /* Hoặc block tùy layout */
+  opacity: 0;
+  /* Animation: Tên - Thời gian - Kiểu mượt - Giữ trạng thái cuối */
+  animation: revealFromLeft 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Thêm một chút delay nếu bạn có nhiều dòng */
+.delay {
+  animation-delay: 0.3s;
+}
+
+/*Animation*/
+
+.navbar{
+    flex: 1 1 auto;           /* CHIẾM HẾT PHẦN GIỮA */
+    min-width: 400px;         /* tránh quá nhỏ */
+    font-family: gmv_din_pro;
+  
+    text-transform: uppercase !important;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.navbarMenu{
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.item{
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+}
+.itemLink{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+
+.navbarActions{
+    margin: auto;
+    width: 320px;
+    min-width: 300px;
+    list-style: none;
+    font-weight: normal;
+    color: #070707;
+    justify-content: space-around;
+}
+
+.actionItem{
+    position: relative;
+    padding: 8px;
+}
+.actionItem svg{
+    font-size: 32px;
+    margin-right: 8px;
+}
+
+.cartCount{
+    position: absolute;
+    top: 25%;
+    right: 59%;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 0px 6px;
+    font-size: 12px;
+}

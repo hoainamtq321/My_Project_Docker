@@ -1,0 +1,18 @@
+# Docker & OS
+.DS_Store
+.docker-compose.override.yml
+
+# Laravel
+backend/.env
+backend/vendor/
+backend/storage/*.key
+backend/public/storage
+backend/bootstrap/cache/*
+
+# React
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+
+# Database (nếu bạn có mount thư mục data)
+mysql_data/
