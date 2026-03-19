@@ -4,6 +4,7 @@ import {HomePage} from "../pages/Home/HomePage";
 import {CollectionsPage} from "../pages/Collections/Collections";
 import {AboutPage} from "../pages/AboutPage";
 import AuthPage from "../pages/Auth/AuthPage";
+import LogoutPage from '../pages/Auth/LogoutPage';
 import  NotFound  from "../pages/NotFound/NotFoundPage";
 
 import ProductDetailPage from "../pages/ProductDetail/ProductDetailPage";
@@ -19,6 +20,7 @@ const AppRoutes = () => {
         <Route path="/collections/:slug" element={<CollectionsPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/auth/:type" element={<AuthPage />} />
+        <Route path="/logout" element={<LogoutPage />} />
         <Route path="/cart" element={<CartPage/>} />
 
         {/* Dòng mới: :id là tham số động, đại diện cho ID của sản phẩm */}

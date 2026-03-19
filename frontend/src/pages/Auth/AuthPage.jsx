@@ -36,14 +36,13 @@ const AuthPage = () => {
         try {
           if(isLogin)
           {
-            // LOGIC Login
-            const data = await loginApi(credentials);
-            console.log(data);
-            // Kiểm tra log: data của bạn là { success: true, token: "...", user: {...} }
-            if(data.success) {
-                login(data.user, data.token); // Lưu user và token vào Context
-                alert('Đăng nhập thành công!');
+            // Gửi request thẳng vào Context
+            const result = await login(credentials);
+            
+            if (result.success) {
                 navigate('/');
+            } else {
+                setError(result.message);
             }
           }
           else

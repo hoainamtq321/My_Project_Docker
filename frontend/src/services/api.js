@@ -31,6 +31,11 @@ export const registerApi = async (userData) => {
     return response.data;
 };
 
+export const logoutApi = async ()=>{
+        const response = await api.post("/logout");
+        return response.data;
+}
+
 // Hàm lấy thông tin user hiện tại (để check khi F5)
 export const getMeApi = async () => {
     const response = await api.get("/me");
