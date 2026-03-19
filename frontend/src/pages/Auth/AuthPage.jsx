@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { loginApi, registerApi, getMeApi } from "../../services/api";
-
+import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 const AuthPage = () => {
   
-  useEffect(() => {
-    // Cuộn lên đầu trang ngay khi vào trang chi tiết
-    window.scrollTo(0, 0);
-  }, []); // [] đảm bảo chỉ chạy 1 lần khi render
+
+  const { login } = useAuth(); // Lấy hàm login từ Context
+  const navigate = useNavigate(); // tạo nút chuyển trang
 
     // 1. Khởi tạo state để lưu giá trị nhập vào
     const { type } = useParams();
@@ -38,10 +38,13 @@ const AuthPage = () => {
           {
             // LOGIC Login
             const data = await loginApi(credentials);
-            localStorage.setItem('token', data.token); // Lưu token
-            getMeApi(); // Gọi API /me để lưu thông tin user vào Context ngay sau khi login
-            alert('Đăng nhập thành công!');
-            // Điều hướng người dùng đi tiếp...
+            console.log(data);
+            // Kiểm tra log: data của bạn là { success: true, token: "...", user: {...} }
+            if(data.success) {
+                login(data.user, data.token); // Lưu user và token vào Context
+                alert('Đăng nhập thành công!');
+                navigate('/');
+            }
           }
           else
           {
@@ -54,8 +57,12 @@ const AuthPage = () => {
             };
 
             const data = await registerApi(userData);
-            alert('Đăng ký thành công! Bây giờ bạn có thể đăng nhập.');
-            setIsLogin(true); // Chuyển sang trang đăng nhập
+            alert("Đăng ký thành công");
+            navigate('/auth/login'); 
+            
+            // Reset lại form để người dùng điền thông tin login
+            setName('');
+            setPassword('');
           }
 
         } catch (error) {

@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect, useContext } from 'react';
-import axios from 'axios';
+
+import api, { getMeApi } from '../services/api';
 
 const AuthContext = createContext();
 
@@ -11,26 +12,19 @@ export const AuthProvider = ({ children }) => {
         const checkAuth = async () => {
             // Bước 1: Lấy token từ localStorage ngay khi F5
             const token = localStorage.getItem('token');
-
-            if (token) {
-                // Bước 2: Gắn ngay token vào Header của Axios để gọi API /me
-                axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-                
+            if (token) {         
                 try {
-                    // Bước 3: Gọi API /me để xác thực token này còn sống hay không
-                    // Hãy đảm bảo Backend Laravel của bạn đang chạy và có Route này
-                    const res = await axios.get('http://localhost:8000/api/me');
+                    // Gọi API được cấu hình trong api.js để xác thực token này còn sống hay không
+                    const userData = await getMeApi();
                     
-                    // Bước 4: Nếu OK, lưu thông tin user vào State
-                    setUser(res.data);
+                    // Nếu OK, lưu thông tin user vào State
+                    setUser(userData);
                 } catch (err) {
                     console.error("Token hết hạn hoặc sai:", err);
-                    localStorage.removeItem('token');
-                    delete axios.defaults.headers.common['Authorization'];
-                    setUser(null);
+                    setUser(userData);
                 }
             }
-            // Bước 5: Sau khi kiểm tra xong (dù thành công hay thất bại) mới tắt Loading
+            // Sau khi kiểm tra xong (dù thành công hay thất bại) mới tắt Loading
             setLoading(false);
         };
 
@@ -39,13 +33,11 @@ export const AuthProvider = ({ children }) => {
 
     const login = (userData, token) => {
         localStorage.setItem('token', token);
-        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         setUser(userData);
     };
 
     const logout = () => {
         localStorage.removeItem('token');
-        delete axios.defaults.headers.common['Authorization'];
         setUser(null);
     };
 
